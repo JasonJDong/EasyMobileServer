@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5494D25E-8A00-41A7-8D77-2510EAF34764}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DMobile.Server.Publish</RootNamespace>
+    <AssemblyName>DMobile.Server.Publish</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DesktopBuildPackageLocation>..\..\bin\Package\EasySpecifyServer.zip</DesktopBuildPackageLocation>
+    <DeployIisAppPath>EasySpecify/EasySpecifyServer_deploy</DeployIisAppPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DesktopBuildPackageLocation>..\..\bin\Package\EasySpecifyServer.zip</DesktopBuildPackageLocation>
+    <DeployIisAppPath>EasySpecify/EasySpecifyServer_deploy</DeployIisAppPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DMobile.Biz.Interface\DMobile.Biz.Interface.csproj">
+      <Project>{2A9A3AC8-18E9-4E7B-88C4-48316E97CDCF}</Project>
+      <Name>DMobile.Biz.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DMobile.Server.Common.Entity\DMobile.Server.Common.Entity.csproj">
+      <Project>{07F04A90-3E9F-44AC-9473-2C1AEC2FAD76}</Project>
+      <Name>DMobile.Server.Common.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DMobile.Server.Common\DMobile.Server.Common.csproj">
+      <Project>{CBB28B00-8FB3-492A-AD12-010CBD9B4914}</Project>
+      <Name>DMobile.Server.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DMobile.Server.Configuration\DMobile.Server.Configuration.csproj">
+      <Project>{57A63270-E2F5-417D-A036-E52D150F8F1F}</Project>
+      <Name>DMobile.Server.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DMobile.Server.Extension.Plugin.Common\DMobile.Server.Extension.Plugin.Common.csproj">
+      <Project>{02A53FDE-838C-4BD9-A36D-8C9C82229614}</Project>
+      <Name>DMobile.Server.Extension.Plugin.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DMobile.Server.Extension.Plugin.System\DMobile.Server.Extension.Plugin.System.csproj">
+      <Project>{DB700049-348A-4F7A-8A6B-BB6FD1353959}</Project>
+      <Name>DMobile.Server.Extension.Plugin.System</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DMobile.Server.Initializer.Server\DMobile.Server.Initializer.Server.csproj">
+      <Project>{0211D2DA-17EC-4534-9386-1AAA806D4779}</Project>
+      <Name>DMobile.Server.Initializer.Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DMobile.Server.Language\DMobile.Server.Language.csproj">
+      <Project>{F9428190-4984-466D-BE31-67C95CF5EAC7}</Project>
+      <Name>DMobile.Server.Language</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DMobile.Server.Main\DMobile.Server.Main.csproj">
+      <Project>{0430727D-A5C7-4FDF-9A4B-3F42B8C763FA}</Project>
+      <Name>DMobile.Server.Main</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DMobile.Server.Login\DMobile.Server.Login.csproj">
+      <Project>{BCEFA64F-F302-4476-B3B0-5386CE7FAE1C}</Project>
+      <Name>DMobile.Server.Login</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DMobile.Server.Session\DMobile.Server.Session.csproj">
+      <Project>{C262EB3F-6CE0-4B67-8D0A-98C22111F6AA}</Project>
+      <Name>DMobile.Server.Session</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DMobile.Server.Socket\DMobile.Server.Socket.csproj">
+      <Project>{4C37DAE1-7013-4B05-AA38-6B200952B483}</Project>
+      <Name>DMobile.Server.Socket</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DMobile.Server.Utilities\DMobile.Server.Utilities.csproj">
+      <Project>{E91DEC4F-6A0C-4C45-B411-4D1CD3B32662}</Project>
+      <Name>DMobile.Server.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>10222</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
