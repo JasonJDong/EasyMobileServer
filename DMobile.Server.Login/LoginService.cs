@@ -12,6 +12,7 @@ using DMobile.Server.Common.MethodReflection;
 using DMobile.Server.Common.Request;
 using DMobile.Server.Extension.Plugin.System;
 using DMobile.Server.Initializer.Server;
+using DMobile.Server.Language;
 using DMobile.Server.Utilities;
 
 namespace DMobile.Server.Login
@@ -21,11 +22,19 @@ namespace DMobile.Server.Login
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class LoginService : ILoginService
     {
-        private const string BAD_REQUEST = "Bad Request";
-
         public LoginService()
         {
+            //插件初始化
+            if (PluginDetector.GetPlugins().Count == 0)
+            {
+                //Log记录
+            }
             PluginManager.Instance.LoadPlugins(PluginDetector.GetPlugins());
+            //业务
+            if (ConfigurationLoader.Instance.Business == null)
+            {
+                throw new ArgumentNullException(ErrorResources.SYSTEM_COMM_ERROR_0x0001);
+            }
             MethodRoute.Register(ConfigurationLoader.Instance.Business.GetType());
         }
 
@@ -49,7 +58,7 @@ namespace DMobile.Server.Login
         {
             if (string.IsNullOrWhiteSpace(encryptData))
             {
-                return BAD_REQUEST;
+                return ErrorResources.SYSTEM_WARNING_0x0001;
             }
             //初始化服务器(插件、配置)
             string decrypString = ConfigurationLoader.Instance.DataParser.DecryptData(encryptData);
@@ -81,7 +90,7 @@ namespace DMobile.Server.Login
                 //TODO:此处的异常应统一处理
                 if (request.RequestMethod == null)
                 {
-                    return BAD_REQUEST;
+                    return ErrorResources.SYSTEM_WARNING_0x0002; 
                 }
                 object obj = MethodRoute.Invoke(request.RequestMethod, MethodsName);
                 string json = JSONConvert.ConvertToString(obj);
@@ -92,6 +101,7 @@ namespace DMobile.Server.Login
             catch (Exception ex)
             {
                 return ex.InnerException != null ? ex.InnerException.ToString() : ex.ToString();
+                //return ErrorResources.SYSTEM_INFO_0x0001;
             }
         }
 
