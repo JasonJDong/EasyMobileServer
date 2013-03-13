@@ -46,7 +46,6 @@
     <Compile Include="Configer.cs" />
     <Compile Include="Context\ServerDataContext.cs" />
     <Compile Include="Context\EnviromentBase.cs" />
-    <Compile Include="ErrorMapping.cs" />
     <Compile Include="Interface\IAttachmentResolver.cs" />
     <Compile Include="Interface\IMethodResolver.cs" />
     <Compile Include="Interface\IDataParser.cs" />

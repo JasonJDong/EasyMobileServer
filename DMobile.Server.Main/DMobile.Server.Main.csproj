@@ -74,6 +74,10 @@
       <Project>{0211D2DA-17EC-4534-9386-1AAA806D4779}</Project>
       <Name>DMobile.Server.Initializer.Server</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DMobile.Server.Language\DMobile.Server.Language.csproj">
+      <Project>{F9428190-4984-466D-BE31-67C95CF5EAC7}</Project>
+      <Name>DMobile.Server.Language</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DMobile.Server.Session\DMobile.Server.Session.csproj">
       <Project>{C262EB3F-6CE0-4B67-8D0A-98C22111F6AA}</Project>
       <Name>DMobile.Server.Session</Name>
