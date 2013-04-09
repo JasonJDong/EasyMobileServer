@@ -53,7 +53,8 @@ namespace DMobile.Server.Common.MethodReflection
             {
                 if (method.Parameters.ContainsKey(parameters[i].Name))
                 {
-                    context.SetValue(i, method.Parameters[parameters[i].Name]);
+                    var obj = BuildParameterValue(parameters[i], method.Parameters[parameters[i].Name]);
+                    context.SetValue(i, obj);
                 }
             }
 
@@ -79,7 +80,8 @@ namespace DMobile.Server.Common.MethodReflection
             {
                 if (method.Parameters.ContainsKey(parameters[i].Name))
                 {
-                    context.SetValue(i, method.Parameters[parameters[i].Name]);
+                    var obj = BuildParameterValue(parameters[i], method.Parameters[parameters[i].Name]);
+                    context.SetValue(i, obj);
                 }
             }
 
@@ -88,6 +90,10 @@ namespace DMobile.Server.Common.MethodReflection
 
         private static object BuildParameterValue(ParameterInfo parameter, string valueString)
         {
+            if (parameter.ParameterType.IsEnum)
+            {
+                return Enum.Parse(parameter.ParameterType, valueString);
+            }
             if (!parameter.ParameterType.IsValueType && parameter.ParameterType != typeof (String))
             {
                 return JSONConvert.ConvertToObject(valueString, parameter.ParameterType);
@@ -96,10 +102,6 @@ namespace DMobile.Server.Common.MethodReflection
                 typeof (IConvertible).IsAssignableFrom(parameter.ParameterType))
             {
                 return Convert.ChangeType(valueString, parameter.ParameterType);
-            }
-            if (parameter.ParameterType.IsEnum)
-            {
-                return Enum.Parse(parameter.ParameterType, valueString);
             }
             return valueString;
         }
