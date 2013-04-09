@@ -29,10 +29,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMobile.Server.Common", "..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMobile.Biz.Interface", "..\DMobile.Biz.Interface\DMobile.Biz.Interface.csproj", "{2A9A3AC8-18E9-4E7B-88C4-48316E97CDCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMobile.Biz.DataAccess.Manager", "..\DMobile.Biz.DataAccess.Manager\DMobile.Biz.DataAccess.Manager.csproj", "{88F31BD5-8ACA-467A-A0C1-BE5E06FDCFC7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMobile.Biz.DataAccess", "..\DMobile.Biz.DataAccess\DMobile.Biz.DataAccess.csproj", "{3221B663-632D-49D9-AD0D-A9C275CA089F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorPlugin", "..\CalculatorPlugin\CalculatorPlugin.csproj", "{574EBAE9-FCC0-4020-A4F7-DBF6F9E82BC2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PluginSample", "PluginSample", "{9FD8072E-75B4-4EC6-932C-7BA5C0518371}"
@@ -191,28 +187,6 @@ Global
 		{2A9A3AC8-18E9-4E7B-88C4-48316E97CDCF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{2A9A3AC8-18E9-4E7B-88C4-48316E97CDCF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{2A9A3AC8-18E9-4E7B-88C4-48316E97CDCF}.Release|x86.ActiveCfg = Release|Any CPU
-		{88F31BD5-8ACA-467A-A0C1-BE5E06FDCFC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{88F31BD5-8ACA-467A-A0C1-BE5E06FDCFC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{88F31BD5-8ACA-467A-A0C1-BE5E06FDCFC7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{88F31BD5-8ACA-467A-A0C1-BE5E06FDCFC7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{88F31BD5-8ACA-467A-A0C1-BE5E06FDCFC7}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{88F31BD5-8ACA-467A-A0C1-BE5E06FDCFC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{88F31BD5-8ACA-467A-A0C1-BE5E06FDCFC7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{88F31BD5-8ACA-467A-A0C1-BE5E06FDCFC7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{88F31BD5-8ACA-467A-A0C1-BE5E06FDCFC7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{88F31BD5-8ACA-467A-A0C1-BE5E06FDCFC7}.Release|x86.ActiveCfg = Release|Any CPU
-		{3221B663-632D-49D9-AD0D-A9C275CA089F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3221B663-632D-49D9-AD0D-A9C275CA089F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3221B663-632D-49D9-AD0D-A9C275CA089F}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{3221B663-632D-49D9-AD0D-A9C275CA089F}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{3221B663-632D-49D9-AD0D-A9C275CA089F}.Debug|x86.ActiveCfg = Debug|x86
-		{3221B663-632D-49D9-AD0D-A9C275CA089F}.Debug|x86.Build.0 = Debug|x86
-		{3221B663-632D-49D9-AD0D-A9C275CA089F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3221B663-632D-49D9-AD0D-A9C275CA089F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3221B663-632D-49D9-AD0D-A9C275CA089F}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{3221B663-632D-49D9-AD0D-A9C275CA089F}.Release|Mixed Platforms.Build.0 = Release|x86
-		{3221B663-632D-49D9-AD0D-A9C275CA089F}.Release|x86.ActiveCfg = Release|x86
-		{3221B663-632D-49D9-AD0D-A9C275CA089F}.Release|x86.Build.0 = Release|x86
 		{574EBAE9-FCC0-4020-A4F7-DBF6F9E82BC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{574EBAE9-FCC0-4020-A4F7-DBF6F9E82BC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{574EBAE9-FCC0-4020-A4F7-DBF6F9E82BC2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -238,7 +212,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{574EBAE9-FCC0-4020-A4F7-DBF6F9E82BC2} = {9FD8072E-75B4-4EC6-932C-7BA5C0518371}
 		{57A63270-E2F5-417D-A036-E52D150F8F1F} = {9526F3F7-2866-4109-9179-8981DCD57294}
+		{574EBAE9-FCC0-4020-A4F7-DBF6F9E82BC2} = {9FD8072E-75B4-4EC6-932C-7BA5C0518371}
 	EndGlobalSection
 EndGlobal
