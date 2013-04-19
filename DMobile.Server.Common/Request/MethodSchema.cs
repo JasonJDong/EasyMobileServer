@@ -6,6 +6,6 @@ namespace DMobile.Server.Common.Request
     {
         public string MethodName { get; set; }
 
-        public Dictionary<string, object> Parameters { get; set; }
+        public Dictionary<string, string> Parameters { get; set; }
     }
 }
