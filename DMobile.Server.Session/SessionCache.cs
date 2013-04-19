@@ -23,7 +23,7 @@ namespace DMobile.Server.Session
 
         public bool FindExists(SessionBase session)
         {
-            if (string.IsNullOrWhiteSpace(session.SessionText))
+            if (!IsValid(session))
             {
                 return false;
             }
@@ -36,6 +36,10 @@ namespace DMobile.Server.Session
 
         public bool InsertOne(SessionBase session)
         {
+            if (!IsValid(session))
+            {
+                return false;
+            }
             int rank1 = GetRank(session.SessionText[0]);
             int rank2 = GetRank(session.SessionText[1]);
             int rank3 = GetRank(session.SessionText[2]);
@@ -95,6 +99,11 @@ namespace DMobile.Server.Session
         {
             return SessionIndex[ch.ToString(CultureInfo.InvariantCulture)];
         }
+
+        private bool IsValid(SessionBase session)
+        {
+            return !string.IsNullOrWhiteSpace(session.SessionText) && session.SessionText.Length >= 3;
+        }
     }
 
     internal class CacheRank
@@ -129,7 +138,7 @@ namespace DMobile.Server.Session
         {
             lock (Content)
             {
-                var sessionStatus = new SessionStatus {Session = session, BornTime = DateTime.Now};
+                var sessionStatus = new SessionStatus { Session = session, BornTime = DateTime.Now };
                 if (Content.Contains(sessionStatus))
                 {
                     SessionStatus find = Content.Find(p => string.Equals(p.Session, session));
@@ -143,7 +152,7 @@ namespace DMobile.Server.Session
                 {
                     Comparison<SessionStatus> p =
                         (span, timeSpan) =>
-                        (int) span.BornTime.Subtract(timeSpan.BornTime).TotalSeconds;
+                        (int)span.BornTime.Subtract(timeSpan.BornTime).TotalSeconds;
                     Content.Sort(p);
                     Content.RemoveAt(0);
                 }

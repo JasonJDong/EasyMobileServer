@@ -43,10 +43,10 @@ namespace DMobile.Server.Common.MethodReflection
         {
             string methodName = method.MethodName;
 
-            if (!methods.ContainsKey(methodName))
+            MethodContext context;
+            if (!methods.TryGetValue(methodName, out context))
                 return null;
 
-            MethodContext context = methods[methodName];
             ParameterInfo[] parameters = context.Parameters;
 
             for (int i = 0; i < parameters.Length; i++)
@@ -71,9 +71,9 @@ namespace DMobile.Server.Common.MethodReflection
         {
             string methodName = method.MethodName;
 
-            if (!assignMethodsName.Contains(methodName) || !methods.ContainsKey(methodName))
+            MethodContext context;
+            if (!assignMethodsName.Contains(methodName) || !methods.TryGetValue(methodName, out context))
                 return null;
-            MethodContext context = methods[methodName];
             ParameterInfo[] parameters = context.Parameters;
 
             for (int i = 0; i < parameters.Length; i++)
@@ -94,12 +94,12 @@ namespace DMobile.Server.Common.MethodReflection
             {
                 return Enum.Parse(parameter.ParameterType, valueString);
             }
-            if (!parameter.ParameterType.IsValueType && parameter.ParameterType != typeof (String))
+            if (!parameter.ParameterType.IsValueType && parameter.ParameterType != typeof(String))
             {
                 return JSONConvert.ConvertToObject(valueString, parameter.ParameterType);
             }
             if (parameter.ParameterType.IsValueType && !parameter.ParameterType.IsEnum &&
-                typeof (IConvertible).IsAssignableFrom(parameter.ParameterType))
+                typeof(IConvertible).IsAssignableFrom(parameter.ParameterType))
             {
                 return Convert.ChangeType(valueString, parameter.ParameterType);
             }
