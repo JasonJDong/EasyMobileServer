@@ -1,12 +1,18 @@
 ﻿using System;
 using DMobile.Server.Common.Entity.Exception;
 using DMobile.Server.Session.Entity;
+using DMobile.Server.Session.Error;
 using DMobile.Server.Session.Interface;
 
 namespace DMobile.Server.Configuration
 {
     public class SessionResolver : ISessionResolver
     {
+        public SessionResolver()
+        {
+            Error = new SessionErrorHandle();
+        }
+
         #region ISessionResolver Members
 
         public string SessionText { get; set; }
